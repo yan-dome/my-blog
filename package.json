@@ -5,7 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "testPage": "vue serve ./src/components/Page/testPage.vue",
+    "testAvatar": "vue serve ./src/components/Avatar/testAvatar.vue",
+    "testIcon": "vue serve ./src/components/Icon/testIcon.vue",
+    "testEmpty": "vue serve ./src/components/Empty/testEmpty.vue",
+    "testImagesLoader": "vue serve ./src/components/ImagesLoader/testImagesLoader.vue",
+    "testContact": "vue serve ./src/components/Contact/testContact.vue"
+
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -18,6 +25,8 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "less": "^4.1.2",
+    "less-loader": "^5.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

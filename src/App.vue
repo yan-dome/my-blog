@@ -1,22 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+ <Home />
   </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import Home from './components/Home.vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: 'App', //如果组件在注册的时候没有指定名字，则使用该属性
+  components: { // 局部注册组件
+       Home,
   }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,5 +25,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.iconfont{
+  font-size:50px;
+  color:pink;
 }
 </style>
