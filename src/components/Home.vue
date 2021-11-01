@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Avatar from '../utils/Avatar.vue'
-import Icon from '../utils/Icon.vue'
+import Avatar from '../components/Avatar.vue'
+import Icon from '../components/Icon.vue'
 import Page from '../components/Pager.vue'
 export default {
   //组件所需要的数据

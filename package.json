@@ -11,7 +11,8 @@
     "testIcon": "vue serve ./src/components/Icon/testIcon.vue",
     "testEmpty": "vue serve ./src/components/Empty/testEmpty.vue",
     "testImagesLoader": "vue serve ./src/components/ImagesLoader/testImagesLoader.vue",
-    "testContact": "vue serve ./src/components/Contact/testContact.vue"
+    "testContact": "vue serve ./src/components/Contact/testContact.vue",
+    "testBlog": "vue serve ./src/components/Blog/testBlog.vue"
 
   },
   "dependencies": {
