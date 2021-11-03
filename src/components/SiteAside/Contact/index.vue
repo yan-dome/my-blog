@@ -1,5 +1,16 @@
 <template>
   <ul class="contact-container">
+    <!-- github -->
+    <li>
+      <a>
+        <div class="icon">
+          <Icon type="gihub" />
+        </div>
+        <span>yan_di</span>
+      </a>
+
+      
+    </li>
     <!-- 微信 -->
     <li>
       <a>
@@ -27,17 +38,7 @@
 
       
     </li>
-    <!-- github -->
-    <li>
-      <a>
-        <div class="icon">
-          <Icon type="gihub" />
-        </div>
-        <span>yan_di</span>
-      </a>
-
-      
-    </li>
+    
     <!-- 邮箱 -->
     <li>
       <a href="https://mail.qq.com/" target="_blank">
@@ -53,7 +54,8 @@
 </template>
 
 <script>
-import Icon from "../Icon";
+import Icon from "@/components/Icon";
+
 export default {
   components: {
     Icon,
@@ -64,22 +66,22 @@ export default {
 <style lang='less' scoped>
 @import "~@/styles/styles/var.less";
 .contact-container {
-  // position: relative;
+  
   list-style: none;
   width: 100%;
   color: @lightWords;
   box-sizing: border-box;
-  margin: 0;
-  padding: 20px;
+  
+  padding: 5px;
   @hseight: 30px;
   & li {
     position: relative;
     height: @hseight;
     line-height: 30px;
-    margin: 14px 0px;
+    margin: 8px 0px;
   }
   & li:hover {
-    color: red;
+    color: lighten( @lightWords,20%) ;
     .pop {
       transform: scale(1);
     }
@@ -92,7 +94,7 @@ export default {
     align-items: center;
   }
   .icon {
-    font-size: 26px;
+    font-size: 20px;
     width: 36px;
   }
   .pop {
@@ -103,7 +105,7 @@ export default {
     bottom: @hseight + 5px;
     border: 1px solid #fff;
     border-radius: 10px;
-    background-color: red;
+    background-color: #fff;
     padding: 10px;
     transform: scale(0);
     transform-origin: center bottom;
@@ -124,7 +126,7 @@ export default {
 
     width: 8px;
     height: 8px;
-    background-color: red;
+    background-color: #fff;
   }
 }
 </style>
