@@ -13,7 +13,8 @@
     "testImagesLoader": "vue serve ./src/components/ImagesLoader/testImagesLoader.vue",
     "testContact": "vue serve ./src/components/Contact/testContact.vue",
     "testBlog": "vue serve ./src/components/Blog/testBlog.vue",
-    "testSiteAside": "vue serve ./src/components/SiteAside/testSiteAside.vue"
+    "testSiteAside": "vue serve ./src/components/SiteAside/testSiteAside.vue",
+    "testLayout": "vue serve ./src/components/Layout/testLayout.vue"
   },
   "dependencies": {
     "core-js": "^3.6.5",

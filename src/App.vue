@@ -17,17 +17,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style  lang='less' scoped>
+@import '~@/styles/styles/global.less';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  
 }
-.iconfont{
-  font-size:50px;
-  color:pink;
-}
+
 </style>
