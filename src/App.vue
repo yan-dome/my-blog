@@ -1,31 +1,37 @@
 <template>
-  <div id="app">
-
- <Home />
+  <div class="app-container">
+    <Layout>
+      <template #left>
+       <div> <SiteAside /></div>
+      </template>
+    <template #main>
+      <div>
+      <RouterView />
+        
+      </div>
+    </template>
+    <template #right>
+      
+    </template>
+    </Layout>
   </div>
-  
 </template>
 
 <script>
-
-import Home from './components/Home.vue'
+import SiteAside from './components/SiteAside'
+import Layout from "./components/Layout";
 export default {
-  name: 'App', //如果组件在注册的时候没有指定名字，则使用该属性
-  components: { // 局部注册组件
-       Home,
+  components:{
+    Layout,
+    SiteAside,
   }
 }
 </script>
 
-<style  lang='less' scoped>
-@import '~@/styles/styles/global.less';
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  
+<style lang='less' scoped>
+@import "~@/styles/styles/global.less";
+.app-container {
+  width: 100%;
+  height: 100%;
 }
-
 </style>

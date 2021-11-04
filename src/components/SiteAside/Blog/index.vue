@@ -1,17 +1,17 @@
 <template>
   <ul class="blog-container">
     <li v-for="item in items" :key="item.title">
-      <a
-        :href="item.link"
-        :class="{ active: isActive(item) }"
-        
-        
+      <RouterLink
+        :exact="item.exact"
+        :to="{ name: item.name }"
+       active-class="active"
+       exact-active-class=""
       >
         <div class="icon">
           <Icon :type="item.type" />
         </div>
         <span>{{ item.title }}</span>
-      </a>
+      </RouterLink>
     </li>
   </ul>
 </template>
@@ -22,28 +22,40 @@ export default {
   data() {
     return {
       items: [
-        { title: "主页", type: "home", link: "/" },
-        { title: "博客", type: "blog", link: "/blog",statWideh:true },
-        { title: "关于我", type: "about", link: "/about" },
-        { title: "项目&效果", type: "code", link: "/code" },
-        { title: "留言板", type: "chat", link: "/meagges" },
+        { name: "home", title: "主页", type: "home", link: "/", exact: true },
+        {
+          name: "blog",
+          title: "博客",
+          type: "blog",
+          link: "/fasdf",
+          exact: false,
+        },
+        {
+          name: "about",
+          title: "关于我",
+          type: "about",
+          link: "/about",
+          exact: true,
+        },
+        {
+          name: "project",
+          title: "项目&效果",
+          type: "code",
+          link: "/project",
+          exact: true,
+        },
+        {
+          name: "message",
+          title: "留言板",
+          type: "chat",
+          link: "/message",
+          exact: true,
+        },
       ],
     };
   },
   components: {
     Icon,
-  },
-  methods: {
-    isActive(item) {
-        let path = item.link.toLowerCase();
-        let pathname = location.pathname.toLowerCase();
-        if(item.statWideh) {
-            return pathname.startsWith(path);
-        }else{
-          return  path === pathname;
-        }
-      
-    },
   },
 };
 </script>
@@ -80,7 +92,7 @@ export default {
     margin: 0 10px;
   }
   .active {
-    background-color:lighten(@dark,10%) ;
+    background-color: lighten(@dark, 10%);
     color: #ccc;
   }
 }
