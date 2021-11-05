@@ -1,0 +1,44 @@
+@import "../styles/styles/position.less";
+@import "../styles/styles/var.less";
+
+.message {
+    color: #fff;
+    .self-center(absolute);
+    z-index: 99999;
+    display: flex;
+    box-shadow: -2px 2px 5px rgb(0, 0, 0, .5);
+
+
+    white-space: nowrap;
+    border: 1px solid;
+    align-items: center;
+
+    border-radius: 5px;
+    padding: 15px 30px;
+    line-height: 2;
+    transition: all .8s;
+    transform: translate(-50%, -50%) translateY(25px);
+    opacity: 0;
+
+    &-error {
+        background-color: @danger;
+    }
+
+    &-info {
+        background-color: @lightWords;
+    }
+
+    &-success {
+        background-color: @success;
+    }
+
+    &-warn {
+        background-color: @warn;
+    }
+
+}
+
+.icon {
+    font-size: 26px;
+    margin-right: 5px;
+}

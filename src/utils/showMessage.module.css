@@ -1,0 +1,35 @@
+.message {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  display: flex;
+  box-shadow: -2px 2px 5px #000000;
+  white-space: nowrap;
+  border: 1px solid;
+  align-items: center;
+  border-radius: 5px;
+  padding: 15px 30px;
+  line-height: 2;
+  transition: all 0.8s;
+  transform: translate(-50%, -50%) translateY(25px);
+  opacity: 0;
+}
+.message-error {
+  background-color: #cc3600;
+}
+.message-info {
+  background-color: #999;
+}
+.message-success {
+  background-color: #7ebf50;
+}
+.message-warn {
+  background-color: #dc6a12;
+}
+.icon {
+  font-size: 26px;
+  margin-right: 5px;
+}
