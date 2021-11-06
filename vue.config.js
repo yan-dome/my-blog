@@ -31,8 +31,8 @@ module.exports = {
     https: false,
     hotOnly: false,
     proxy: {
-      "/gxyundata": {
-        target: "http://localhost:3000/",
+      "/api": {
+        target: "http://muy-sfasf.com",
         changeOrigin: true,
         pathRewrite: {
           "^/gxyundata": "/gxyundata"
