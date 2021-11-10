@@ -1,9 +1,9 @@
 
 import Mock from 'mockjs';
 
-Mock.mock("/api/blog",'get',{
+Mock.mock("/api/banner",'get',{
     code:0,
-    msg:"fasdfsaf",
+    msg:"",
     data:[
         {
           id: "1",

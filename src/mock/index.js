@@ -1,1 +1,2 @@
 import './mblog';
+import './mbanner';

@@ -1,9 +1,9 @@
 
-import Home from '../View/Home'
-import About from '../View/About'
-import Blog from '../View/Blog'
-import Message from '../View/Message'
-import Project from '../View/Project'
+import Home from '@/View/Home'
+import About from '@/View/About'
+import Blog from '@/View/Blog'
+import Message from '@/View/Message'
+import Project from '@/View/Project'
 
 
 export default [

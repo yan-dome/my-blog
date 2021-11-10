@@ -5,10 +5,10 @@
        <div> <SiteAside /></div>
       </template>
     <template #main>
-      <div>
+      
       <RouterView />
         
-      </div>
+      
     </template>
     <template #right>
       

@@ -4,4 +4,3 @@ import ins from "./require";
   return await ins.get("/api/blog");
     
  }
- Getblog()
