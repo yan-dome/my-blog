@@ -1,12 +1,17 @@
 <template>
-  <div class="home-container" ref="container" @wheel="hanldScroll">
+  <div
+    class="home-container"
+    ref="container"
+    @wheel="hanldScroll"
+    v-loading="isLoading"
+  >
     <ul
       class="carousel-container"
       :style="{ marginTop }"
       @transitionend="hanldTransitionend"
     >
-      <li v-for="item in banners" :key="item.id">
-        <Carouselitem  :carouse="item" />
+      <li v-for="item in data" :key="item.id">
+        <Carouselitem :carouse="item" />
       </li>
     </ul>
     <div class="icon arrowUp" v-show="index >= 1" @click="swiTop(index - 1)">
@@ -14,7 +19,7 @@
     </div>
     <div
       class="icon arrowDown"
-      v-show="index < banners.length - 1"
+      v-show="index < data.length - 1"
       @click="swiTop(index + 1)"
     >
       <Icon type="arrowDown" />
@@ -22,7 +27,7 @@
     <ul class="indicator">
       <li
         :class="{ active: i === index }"
-        v-for="(item, i) in banners"
+        v-for="(item, i) in data"
         :key="item.id"
         @click="swiTop(i)"
       ></li>
@@ -34,10 +39,14 @@
 import Icon from "../../components/Icon";
 import Carouselitem from "./Carouselitem.vue";
 import { Getbanner } from "../../api/banner";
+import fatchData from "../../mixins/fatchData";
 export default {
+  mixins: [fatchData([])],
   data() {
     return {
-      banners: [], // 需要生成几条数据
+      // isLoading: true, // 自定义组件所需要的参数
+      // banners: [], // 需要生成几条数据
+
       index: 0, // 第几张图
       containerHeight: 0, // 整个容器的高度
       switching: false, //是否正在切换
@@ -47,10 +56,12 @@ export default {
     Icon,
     Carouselitem,
   },
-  async created() {
-    // 请求数据 渲染
-    this.banners = await Getbanner();
-  },
+  // async created() {
+  //   // 请求数据 渲染
+  //   // this.banners = await Getbanner();
+  //   // 自定义指令 loading 参数
+  //   // this.isLoading = false;
+  // },
   mounted() {
     // 获取元素高度
     this.containerHeight = this.$refs.container.clientHeight;
@@ -58,10 +69,14 @@ export default {
   computed: {
     // 显示第几张
     marginTop() {
-      return -this.index * this.containerHeight + "px";
+      return  -this.index * this.containerHeight + "px";
     },
   },
   methods: {
+    // 提供给混入的方法
+    async fatchData() {
+      return await Getbanner();
+    },
     // 切换轮播图  点击
     swiTop(i) {
       this.index = i;
@@ -72,7 +87,7 @@ export default {
         return;
       }
       // 下一页  最大值小于数据数目减一
-      if (e.deltaY > 10 && this.index < this.banners.length - 1) {
+      if (e.deltaY > 10 && this.index < this.data.length - 1) {
         this.switching = true;
         this.index++;
       }
@@ -165,7 +180,7 @@ export default {
     left: auto;
     right: 50px;
     li {
-      background-color: pink;
+      background-color: inherit;
       border: 1px solid;
       width: 8px;
       height: 8px;
@@ -175,7 +190,7 @@ export default {
       cursor: pointer;
       // 选中状态
       &.active {
-        background-color: red;
+        background-color: #fff;
       }
     }
   }

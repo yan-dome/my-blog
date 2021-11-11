@@ -1,6 +1,7 @@
 <template>
+<!-- 此组件 在Home中使用  每个轮播图内部的业务参数数据 -->
   <div class="carouse-container" ref="container" @mousemove="hanldMousemove">
-    <div class="carpuse-img" ref="imgContainer" :style="{ imagesPage }" >
+    <div class="carpuse-img" ref="imgContainer" :style=" imagesPage ">
       <ImagesLoader
         :placeholder="carouse.midImg"
         :src="carouse.bigImg"
@@ -54,36 +55,36 @@ export default {
     window.removeEventListener("resize", this.setSize);
   },
   computed: {
-    // 得到图片的位置
-   imagesPage() {
-     // 如果没有值 说明没有挂载 返回 undefined
-     if(!this.containerSize || !this.imgContainerSize){
-       return;
-     }
-     const extrWidth = this.imgContainerSize.width - this.containerSize.width //多出来的宽度
-     const extrHeight = this.imgContainerSize.height - this.containerSize.height //多出来的高度
-      const left =  -extrWidth / this.containerSize.width * this.mouseX;
-      const top = -extrHeight / this.containerSize.height * this.mouseY;
-      console.log(left,top);
-    return {
-      // transform:`translate(${left}px,${top}px)`,
-      left:left + 'px',
-      top: top + 'px',
-     
-     };
-   },
-   // 鼠标中间位置 坐标
-   center() {
-     return {
-       x:this.containerSize.width / 2,
-       y:this.containerSize.height / 2,
-     }
-   }
+    // 得到图片的位置  返回的是个对象
+    imagesPage() {
+      // 如果没有值 说明没有挂载 返回 undefined
+      if (!this.containerSize || !this.imgContainerSize) {
+        return;
+      }
+      const extrWidth = this.imgContainerSize.width - this.containerSize.width; //多出来的宽度
+      const extrHeight =this.imgContainerSize.height - this.containerSize.height; //多出来的高度
+      const left = (-extrWidth / this.containerSize.width) * this.mouseX;
+      const top = (-extrHeight / this.containerSize.height) * this.mouseY;
+      // console.log(left,top);
+      return {
+        // 为了避免重绘 使用transform 改变位置
+        transform:`translate(${left}px,${top}px)`,
+        
+      };
+    },
+    // 鼠标中间位置 坐标
+    center() {
+      return {
+        x: this.containerSize.width / 2,
+        y: this.containerSize.height / 2,
+      };
+    },
   },
-  
+
   methods: {
     // 调用方法 显示文字
     showtxt() {
+      // 标题文字
       this.$refs.title.style.opacity = 1;
       this.$refs.title.style.width = 0;
       // 强制渲染一次
@@ -91,7 +92,7 @@ export default {
       this.$refs.title.style.transition = `2s`;
       this.$refs.title.style.width = this.titleWidth + "px";
 
-      //描述
+      //描述文字
       this.$refs.description.style.opacity = 1;
       this.$refs.description.style.width = 0;
       // 强制渲染一次
@@ -111,21 +112,20 @@ export default {
         width: this.$refs.imgContainer.clientWidth,
         height: this.$refs.imgContainer.clientHeight,
       };
-
     },
     // 给鼠标位置重新赋值
     hanldMousemove(e) {
       // 获取容器的位置
       const rect = this.$refs.container.getBoundingClientRect();
 
-      this.mouseX = e.clientX - rect.left ;
-      this.mouseY = e.clientY - rect.top ;
-      
+      this.mouseX = e.clientX - rect.left;
+      this.mouseY = e.clientY - rect.top;
     },
+    // 鼠标移出 恢复到默认位置 中间
     hanldMouseleave() {
       this.mouseY = this.center.y;
       this.mouseX = this.center.x;
-    }
+    },
   },
 };
 </script>
@@ -135,16 +135,15 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  
+  overflow: hidden;
   background-color: #000;
   .carpuse-img {
     width: 110%;
     height: 110%;
     position: absolute;
-    transition: 3s;
+    transition: .5s;
     left: 0;
     top: 0;
-    
   }
   .title,
   .description {

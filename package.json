@@ -14,7 +14,8 @@
     "testContact": "vue serve ./src/components/Contact/testContact.vue",
     "testBlog": "vue serve ./src/components/Blog/testBlog.vue",
     "testSiteAside": "vue serve ./src/components/SiteAside/testSiteAside.vue",
-    "testLayout": "vue serve ./src/components/Layout/testLayout.vue"
+    "testLayout": "vue serve ./src/components/Layout/testLayout.vue",
+    "testRightList": "vue serve ./src/View/Blog/RightList/testRightList.vue"
   },
   "dependencies": {
     "axios": "^0.24.0",
